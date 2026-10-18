@@ -43,3 +43,26 @@ learn_nlp/
 - `chapter01_02` 通过 `Path(__file__).parent` 定位词典文件，因此在任意工作目录下运行都不会报 `FileNotFoundError`。
 - `chapter02_02` 需要先下载中文预训练词向量（如 `sgns.weibo.word.bz2`），脚本中的 `model_path` 目前是本机绝对路径，换机器运行时需要改成自己的路径。`.gitignore` 已排除 `*.bz2` 等大文件，不会误提交。
 - jieba 源码中的正则使用了非 raw string，在 Python 3.12+ 下会触发 `SyntaxWarning`，脚本已在 `import jieba` 前过滤该警告。
+
+## 作业
+
+### 用 PyTorch 实现 Skip-Gram
+
+> 对应 `chapter02_03` 中的 TODO：`# TODO: 使用pytorch自己实现一个skip gram模型`
+
+不依赖 gensim，自己完整实现一遍 Word2Vec 的 Skip-Gram 训练流程：
+
+- [ ] **语料预处理**：读入分好词的文本，构建词表与词 → 索引映射
+- [ ] **滑动窗口采样**：按窗口大小生成 `(中心词, 上下文词)` 训练样本对
+- [ ] **负采样**：按词频的 `3/4` 次幂分布为每个正样本采样若干负样本
+- [ ] **模型定义**：`nn.Embedding` + 点积 + `sigmoid` 二分类
+- [ ] **训练循环**：negative sampling 目标函数、反向传播、学习率衰减
+- [ ] **效果验证**：用 `most_similar` 看近义词是否成组，并与 gensim 训练结果对比差异来源
+
+前置条件：PyTorch 尚未列入项目依赖，完成前先执行
+
+```bash
+uv add torch
+```
+
+> 语料请用**真实文本**（几万不同词量级）。手写的小句子训不出可用的向量——词太少会全挤在 ±0.1 的噪声区，词表太小则会全部塌缩到 0.99+ 的饱和区，两种情况下相似度都不可解释。
