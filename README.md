@@ -20,6 +20,7 @@ uv run python chapter01_01_jieba_basic_usage.py   # 运行任意脚本
 | `chapter02_01_word_representation.py` | **词表示的演进**：One-Hot 编码的局限（无语义、维度膨胀）→ Word2Vec 稠密语义向量 → 静态向量与上下文相关向量的区别 | [查看源码](chapter02_01_word_representation.py) |
 | `chapter02_02_word2vec.py` | **使用预训练词向量**：用 gensim 加载中文词向量，实操向量维度、词向量查看、余弦相似度、`most_similar` 近义词检索，以及向量算术 `男人 + 女孩 - 男孩` | [查看源码](chapter02_02_word2vec.py) |
 | `chapter02_03_train_word_vector.py` | **自己训练词向量**：基于自有语料训练（待补充） | [查看源码](chapter02_03_train_word_vector.py) |
+| `chapter02_04_train_word_vector_from_dataset.py` | **从数据集训练词向量**：改用 `LineSentence` 读取外部语料文件训练，摆脱硬编码语料的规模限制（待补充） | [查看源码](chapter02_04_train_word_vector_from_dataset.py) |
 
 配套资源：[`assets/my_test_jieba_dict.txt`](assets/my_test_jieba_dict.txt) —— `chapter01_02` 用到的 jieba 自定义词典，格式为 `词 词频 词性`（半角空格分隔）。
 
@@ -34,6 +35,7 @@ learn_nlp/
 ├── chapter02_01_word_representation.py
 ├── chapter02_02_word2vec.py
 ├── chapter02_03_train_word_vector.py
+├── chapter02_04_train_word_vector_from_dataset.py
 ├── pyproject.toml                  # 依赖声明
 └── uv.lock                         # 依赖版本锁定
 ```
