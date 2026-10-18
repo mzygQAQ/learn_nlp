@@ -1,0 +1,9 @@
+[project]
+name = "learn-nlp"
+version = "0.1.0"
+description = "Add your description here"
+requires-python = ">=3.12"
+dependencies = [
+    "gensim>=4.4.0",
+    "jieba3k>=0.35.1",
+]

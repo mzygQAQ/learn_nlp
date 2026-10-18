@@ -1,0 +1,49 @@
+# ---------- Python ----------
+__pycache__/
+*.py[cod]
+*$py.class
+*.pyd
+build/
+dist/
+*.egg-info/
+.eggs/
+
+# ---------- 虚拟环境（uv / venv）----------
+.venv/
+venv/
+env/
+ENV/
+
+# ---------- 工具缓存 ----------
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
+.ipynb_checkpoints/
+.coverage
+htmlcov/
+.cache/
+
+# ---------- IDE ----------
+# PyCharm / IntelliJ
+.idea/
+*.iml
+# VS Code
+.vscode/
+
+# ---------- 日志 ----------
+*.log
+
+# ---------- 操作系统 ----------
+.DS_Store
+Thumbs.db
+desktop.ini
+
+# ---------- NLP 数据与训练产物（体积大，不入库）----------
+# 语料 / 预训练词向量：sgns.weibo.word.bz2、sgns.*.vec 等
+*.bz2
+*.vec
+*.kv
+*.model
+*.bin
+*.npy
+*.npz
